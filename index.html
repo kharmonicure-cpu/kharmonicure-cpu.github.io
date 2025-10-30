@@ -1,78 +1,180 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio Black Hole</title>
-<style>
-    body, html {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        background-color: rgba(25,25,25,1);
-        overflow: hidden;
-        font-family: 'Montserrat', sans-serif;
-    }
-    #blackhole {
-        height: 100%;
-        width: 100%;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .centerHover {
-        width: 255px;
-        height: 255px;
-        border-radius: 50%;
-        background-color: rgba(0,0,0,0.3);
-        position: absolute;
-        z-index: 2;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: all 0.5s ease;
-        text-align: center;
-    }
-    .centerHover span {
-        color: #ccc;
-        font-size: 18px;
-        letter-spacing: 2px;
-    }
-    .centerHover.open {
-        opacity: 0;
-        pointer-events: none;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노이연 이력서</title>
+    <style>
+        /* Reset & 기본 스타일 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    canvas {
-        position: absolute;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #111;
+            background-color: #fff;
+        }
 
-    /* 포트폴리오 카드 */
-    .portfolio {
-        position: absolute;
-        width: 300px;
-        max-width: 90%;
-        height: 400px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(10,10,10,0.9);
-        border-radius: 20px;
-        padding: 20px;
-        color: #eee;
-        opacity: 0;
-        pointer-events: none;
-        transition: all 0.6s ease;
-        z-index: 3;
-        overflow-y: auto;
-        box-shadow: 0 0 20px rgba(255,255,255,0.1);
-    }
-    .portfolio.show {
-        opacity: 1;
-        pointer-events: auto;
-    }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* 컨테이너 */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 헤더 */
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 2px solid #333;
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        /* 섹션 */
+        section {
+            margin-bottom: 50px;
+        }
+
+        section h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #333;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* 기술 스택 */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-stack span {
+            background-color: #f0f0f0;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.9em;
+        }
+
+        /* 프로젝트 */
+        .project {
+            margin-bottom: 20px;
+        }
+
+        .project h3 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .project p {
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        /* 연락처 */
+        .contact a {
+            display: inline-block;
+            margin-right: 20px;
+            color: #007BFF;
+            font-weight: 500;
+        }
+
+        /* 반응형 */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            header p {
+                font-size: 0.9em;
+            }
+
+            section h2 {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 소개 섹션 -->
+        <header>
+            <img src="images/profile.jpg" alt="프로필 이미지">
+            <h1>노이연</h1>
+            <p>모던하고 깔끔한 웹 개발자 | UX/UI 중심 설계 | 프론트엔드와 백엔드 경험</p>
+        </header>
+
+        <!-- 기술 스택 -->
+        <section id="tech-stack">
+            <h2>기술 스택</h2>
+            <div class="tech-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>React</span>
+                <span>Node.js</span>
+                <span>Python</span>
+                <span>Git</span>
+                <span>Figma</span>
+            </div>
+        </section>
+
+        <!-- 프로젝트 -->
+        <section id="projects">
+            <h2>프로젝트</h2>
+            <div class="project">
+                <h3>Portfolio Website</h3>
+                <p>개인 포트폴리오 웹사이트 제작, 반응형 디자인 적용, GitHub Pages 배포</p>
+            </div>
+            <div class="project">
+                <h3>Web Application</h3>
+                <p>React와 Node.js를 사용한 웹 애플리케이션 개발, REST API 연동</p>
+            </div>
+            <div class="project">
+                <h3>Data Visualization</h3>
+                <p>Python 기반 데이터 분석 및 시각화 프로젝트, Matplotlib과 Plotly 활용</p>
+            </div>
+        </section>
+
+        <!-- 연락처 -->
+        <section id="contact">
+            <h2>연락처</h2>
+            <div class="contact">
+                <a href="mailto:example@email.com">이메일</a>
+                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/yourprofile/" target="_blank">LinkedIn</a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
